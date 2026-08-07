@@ -1,0 +1,83 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+class Product {
+    int id = 78;
+    String name = "Amul";
+
+    void display() {
+        System.out.println("Id: " + id + ", Name: " + name);
+    }
+}
+
+class A extends Product {
+    int count = 50;
+    String category = "Butter";
+
+    void display() {
+        super.display();
+        System.out.println("Count: " + count + ", Category: " + category);
+    }
+}
+
+class B extends Product {
+    int count = 90;
+    String category = "Milk";
+
+    void display() {
+        super.display();
+        System.out.println("Count: " + count + ", Category: " + category);
+    }
+}
+
+class C extends Product {
+    int count = 56;
+    String category = "Choco";
+
+    void display() {
+        super.display();
+        System.out.println("Count: " + count + ", Category: " + category);
+    }
+}
+
+class SubA extends A {
+    int price = 30;
+
+    void showTotal() {
+        int total = count * price;
+        super.display();
+        System.out.println("Price: " + price);
+        System.out.println("Total Price: " + total);
+    }
+}
+
+class SubB extends B {
+    int price = 10;
+
+    void showTotal() {
+        int total = count * price;
+        super.display();
+        System.out.println("Price: " + price);
+        System.out.println("Total Price: " + total);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        SubA a = new SubA();
+        System.out.println("----- Product A -----");
+        a.showTotal();
+
+        System.out.println();
+
+        SubB b = new SubB();
+        System.out.println("----- Product B -----");
+        b.showTotal();
+        
+        System.out.println();
+        
+        C c = new C();
+        System.out.println("----- Product C -----");
+        c.display();
+    }
+}

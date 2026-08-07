@@ -1,0 +1,72 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+class Example {
+
+    void display() {
+
+    
+        ArrayList<String> items = new ArrayList<>();
+
+        items.add("banana");
+        items.add("Mango");
+        items.add("Apple");
+        items.add("Guava");
+        items.add("Kiwi");
+        items.add("Grapes");
+        items.add("Pune");
+        items.add("Banglore");
+        items.add("Cricket");
+        items.add("Singing");
+
+        System.out.println("ArrayList: " + items);
+
+        // Remove elements
+        items.remove(8); // Removes "Cricket"
+        items.remove("banana");
+
+        System.out.println("After removal: " + items);
+
+        // Check if element exists
+        System.out.println("Contains 'Cricket': " + items.contains("Cricket"));
+
+        
+        System.out.println("4th Element: " + items.get(3));
+        System.out.println("6th Element: " + items.get(5));
+
+        
+        items.set(7, "Dancing");
+        System.out.println("After update: " + items);
+
+        // Reverse list
+        Collections.reverse(items);
+        System.out.println("After reverse: " + items);
+
+        
+        items.set(4, "Kerala");
+        items.set(2, "Mango");
+
+        // Create second ArrayList
+        ArrayList<String> cities = new ArrayList<>();
+
+        cities.add("Mumbai");
+        cities.add("Kolkata");
+        cities.add("Hyderabad");
+        cities.add("Chennai");
+
+        System.out.println("Second ArrayList: " + cities);
+
+        // Merge lists
+        items.addAll(cities);
+
+        System.out.println("Combined ArrayList: " + items);
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+        Example example = new Example();
+        example.display();
+    }
+}

@@ -1,0 +1,41 @@
+import java.util.*;
+
+
+
+public class Main {
+
+    public static void main(String[] args) {
+       HashMap fruits = new HashMap();
+        fruits.put(1,"Apple");
+        fruits.put(2,"Banana");
+        fruits.put(3,"Orange");
+        fruits.put(4,"Kiwi");
+        fruits.put(5,"Grapes");
+        fruits.put(6,"Guava");
+         fruits.put(7,"Blueberry");
+        fruits.put(8,"Raspberry");
+        fruits.put(9,"Pears");
+        fruits.put(10,"Papaya");
+
+        //print map
+        System.out.println("Fruits map: " +fruits);
+
+        //remove 4th fruit using value and 7th fruit using index
+        fruits.remove(4);
+        fruits.remove(7,"Blueberry");
+        System.out.println("Fruits map: " +fruits);
+
+       // check if map contains "banana" and "apple" fruit
+        System.out.println(fruits.containsValue("Banana" ) && fruits.containsValue("Apple"));
+        //System.out.println(fruits.containsValue("Apple"));
+
+        //check if it contains 4th key or not
+        System.out.println(fruits.containsKey(4));
+
+        //Hash code of map
+        System.out.println("HashCode of map: " + fruits.hashCode());
+       // Clear map
+        fruits.clear();
+
+    }
+}

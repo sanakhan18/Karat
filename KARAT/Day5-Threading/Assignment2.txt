@@ -1,0 +1,50 @@
+import java.util.concurrent.*;
+
+public class StudentMarksProcessing {
+
+    public static void main(String[] args) {
+
+        String studentName = "Rahul";
+
+        int maths = 80;
+        int java = 75;
+        int database = 90;
+
+     
+        CompletableFuture<Integer> totalTask =
+                CompletableFuture.supplyAsync(() ->
+                        maths + java + database);
+
+       
+        CompletableFuture<Double> averageTask =
+                CompletableFuture.supplyAsync(() ->
+                        (maths + java + database) / 3.0);
+
+        
+        CompletableFuture<Integer> highestTask =
+                CompletableFuture.supplyAsync(() ->
+                        Math.max(maths, Math.max(java, database)));
+
+        
+        CompletableFuture<String> resultTask =
+                CompletableFuture.supplyAsync(() ->
+                        (maths >= 40 && java >= 40 && database >= 40)
+                                ? "PASS"
+                                : "FAIL");
+
+        
+        CompletableFuture.allOf(
+                totalTask,
+                averageTask,
+                highestTask,
+                resultTask
+        ).join();
+
+        
+        System.out.println("Student: " + studentName);
+        System.out.println("Total: " + totalTask.join());
+        System.out.printf("Average: %.2f%n", averageTask.join());
+        System.out.println("Highest: " + highestTask.join());
+        System.out.println("Result: " + resultTask.join());
+    }
+}

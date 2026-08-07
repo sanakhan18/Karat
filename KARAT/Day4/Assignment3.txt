@@ -1,0 +1,184 @@
+// Parent Abstract Class
+abstract class Vehicle {
+
+    int speed = 60;
+    long distance = 500;
+
+    // Default Constructor
+    Vehicle() {
+        System.out.println("Vehicle Default Constructor");
+    }
+
+    // Parameterized Constructor
+    Vehicle(int speed, long distance) {
+        this.speed = speed;
+        this.distance = distance;
+        System.out.println("Vehicle Parameterized Constructor");
+    }
+
+    // Abstract Methods
+    abstract void run();
+    abstract void stop();
+
+    // Method Overloading
+    public void fuel(int litres) {
+        System.out.println("Fuel Method 1 : " + litres + " litres");
+    }
+
+    public void fuel(float price, String type) {
+        System.out.println("Fuel Method 2 : Price = " + price + ", Type = " + type);
+    }
+
+    public void fuel(char grade, int litres) {
+        System.out.println("Fuel Method 3 : Grade = " + grade + ", Litres = " + litres);
+    }
+}
+
+// 2W Class
+class TwoW extends Vehicle {
+
+    int speed = 80;
+    long distance = 1000;
+    int no_of_tyres = 2;
+
+    TwoW() {
+        System.out.println("2W Default Constructor");
+    }
+
+    @Override
+    void run() {
+        System.out.println("2W Running");
+    }
+
+    @Override
+    void stop() {
+        System.out.println("2W Stopped");
+    }
+
+    void display() {
+        
+        System.out.println("Child Variables : " + speed + " " + distance + " " + no_of_tyres);
+        System.out.println("Parent Variables : " + super.speed + " " + super.distance);
+    }
+}
+
+// 3W Class
+class ThreeW extends Vehicle {
+
+    int speed = 50;
+    long distance = 1500;
+    int no_of_tyres = 3;
+
+    ThreeW() {
+        System.out.println("3W Default Constructor");
+    }
+
+    @Override
+    void run() {
+        System.out.println("3W Running");
+    }
+
+    @Override
+    void stop() {
+        System.out.println("3W Stopped");
+    }
+
+    void display() {
+        System.out.println("\n--- 3W Details ---");
+        System.out.println("Child Variables : " + speed + " " + distance + " " + no_of_tyres);
+        System.out.println("Parent Variables : " + super.speed + " " + super.distance);
+    }
+}
+
+// 4W Class
+class FourW extends Vehicle {
+
+    int speed = 120;
+    long distance = 3000;
+    int no_of_tyres = 4;
+
+    FourW() {
+        System.out.println("4W Default Constructor");
+    }
+
+    @Override
+    void run() {
+        System.out.println("4W Running");
+    }
+
+    @Override
+    void stop() {
+        System.out.println("4W Stopped");
+    }
+
+    void display() {
+        System.out.println("\n--- 4W Details ---");
+        System.out.println("Child Variables : " + speed + " " + distance + " " + no_of_tyres);
+        System.out.println("Parent Variables : " + super.speed + " " + super.distance);
+    }
+}
+
+// 8W Class
+class EightW extends Vehicle {
+
+    int speed = 90;
+    long distance = 5000;
+    int no_of_tyres = 8;
+
+    EightW() {
+        System.out.println("8W Default Constructor");
+    }
+
+    @Override
+    void run() {
+        System.out.println("8W Running");
+    }
+
+    @Override
+    void stop() {
+        System.out.println("8W Stopped");
+    }
+
+    void display() {
+        System.out.println("\n--- 8W Details ---");
+        System.out.println("Child Variables : " + speed + " " + distance + " " + no_of_tyres);
+        System.out.println("Parent Variables : " + super.speed + " " + super.distance);
+    }
+}
+
+// Main Class
+public class Main {
+
+    public static void main(String[] args) {
+
+        // Runtime Polymorphism
+        Vehicle v1 = new TwoW();
+        v1.run();
+        v1.stop();
+        ((TwoW) v1).display();
+
+        Vehicle v2 = new ThreeW();
+        v2.run();
+        v2.stop();
+        ((ThreeW) v2).display();
+
+        Vehicle v3 = new FourW();
+        v3.run();
+        v3.stop();
+        ((FourW) v3).display();
+
+        Vehicle v4 = new EightW();
+        v4.run();
+        v4.stop();
+        ((EightW) v4).display();
+
+        // Calling overloaded fuel methods
+        System.out.println("\n--- Fuel Methods ---");
+
+        Vehicle obj = new TwoW();
+
+        obj.fuel(10);
+        obj.fuel(250.75f, "Petrol");
+        obj.fuel('A', 15);
+    }
+}

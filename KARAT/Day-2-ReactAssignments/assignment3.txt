@@ -1,0 +1,23 @@
+// 1. Normal Function
+function calculateSI(P, ROI, T) {
+    return (P * ROI * T) / 100;
+}
+
+console.log("Normal Function:");
+console.log("Simple Interest =", calculateSI(10000, 5, 2));
+
+
+// 2. Function Expression
+const calculateSIExpression = function (P, ROI, T) {
+    return (P * ROI * T) / 100;
+};
+
+console.log("\nFunction Expression:");
+console.log("Simple Interest =", calculateSIExpression(10000, 5, 2));
+
+
+// 3. Arrow Function
+const calculateSIArrow = (P, ROI, T) => (P * ROI * T) / 100;
+
+console.log("\nArrow Function:");
+console.log("Simple Interest =", calculateSIArrow(10000, 5, 2));

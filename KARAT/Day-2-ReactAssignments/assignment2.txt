@@ -1,0 +1,41 @@
+const fruits = [
+  "Apple",
+  "Orange",
+  "Pear",
+  "Kiwi",
+  "Banana",
+  "Melon",
+  "Strawberry",
+  "Mango",
+  "Chiku",
+  "Grapes",
+  "Small-grapes"
+];
+
+//  Print even index fruits 
+console.log("Even Index Fruits:");
+fruits.forEach((fruit, index) => {
+  if (index % 2 === 0) {
+    console.log(fruit);
+  }
+});
+
+//  Print odd index fruits 
+console.log("\nOdd Index Fruits:");
+fruits.forEach((fruit, index) => {
+  if (index % 2 !== 0) {
+    console.log(fruit);
+  }
+});
+
+//  Print fruits whose index is a multiple of 3
+console.log("\nMultiple of 3 Index Fruits:");
+fruits.forEach((fruit, index) => {
+  if (index % 3 === 0) {
+    console.log(fruit);
+  }
+});
+
+//  Print the 1st, 6th and last fruits together
+console.log("\n1st, 6th and Last Fruits:");
+console.log(fruits[0], fruits[5], fruits[fruits.length - 1]);s

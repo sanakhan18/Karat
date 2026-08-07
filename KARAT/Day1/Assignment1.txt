@@ -1,0 +1,28 @@
+import java.util.*;
+ 
+  class courses{
+   void displayCourses(){
+  TreeSet ts = new TreeSet();
+  ts.add("Java");
+  ts.add("Python");
+  ts.add("dotnet");
+  ts.add("SQL");
+  ts.add("C++");
+  ts.add("Spring");
+  System.out.println("List of courses:" + ts);
+  ts.remove("Python");
+  ts.remove("dotnet");
+  System.out.println("List of courses:" + ts);
+  System.out.println("Java is present or not: " + ts.contains("Java"));
+  ts.removeAll(ts);
+  System.out.println("List of courses:" + ts);
+
+    }
+ }
+public class Main {
+    public static void main(String[] args) {  
+      courses ob = new courses();
+      ob.displayCourses();
+      
+    }
+}

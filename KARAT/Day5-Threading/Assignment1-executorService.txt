@@ -1,0 +1,59 @@
+import java.util.*;
+import java.util.concurrent.*;
+
+public class ParallelNumberCalculator {
+
+    public static void main(String[] args) {
+
+        int number = 6;
+
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+
+        CompletableFuture<Boolean> primeFuture =
+                CompletableFuture.supplyAsync(() -> isPrime(number), executor);
+
+        CompletableFuture<Integer> factorialFuture =
+                CompletableFuture.supplyAsync(() -> factorial(number), executor);
+
+        CompletableFuture<Integer> squareFuture =
+                CompletableFuture.supplyAsync(() -> number * number, executor);
+
+        CompletableFuture.allOf(primeFuture, factorialFuture, squareFuture).join();
+
+        try {
+            System.out.println("Prime: " + primeFuture.get());
+            System.out.println("Factorial: " + factorialFuture.get());
+            System.out.println("Square: " + squareFuture.get());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        executor.shutdown();
+        
+    }
+
+    private static boolean isPrime(int n) {
+        if (n <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private static int factorial(int n) {
+    int result = 1;
+
+    for (int i = 2; i <= n; i++) {
+        result *= i;
+    }
+
+    return result;
+
+    }
+}

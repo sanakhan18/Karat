@@ -1,0 +1,63 @@
+/*Assignment 3: create the 4 student objects with name s1,s2,s3,s4
+
+(1) Calcuate the total marks and percentage obtained by every student (total= subject 1 + subject 2+ subject 3) by passing the values from the parameterized constructor
+(2) For s2 and s3 students pass subject 1 marks = 0 and dont pass it in constructor.
+(3) create method display ---> display all the s1, s2, s3 and s4 objects values (all the class variables + total marks + percentage)
+
+*/
+class Students{
+    String name;
+    int age;
+    char section;
+    char gender ;
+    int subject1;
+    int subject2;
+    int subject3;
+    public Students(String name, int age, char section, char gender, int subject1, int subject2, int subject3){
+        this.name = name;
+        this.age = age;
+        this.section = section;
+        this.gender = gender;
+        this.subject1 = subject1;
+        this.subject2 = subject2;
+        this.subject3 = subject3;
+    }
+    public Students(String name, int age, char section, char gender, int subject2, int subject3){
+        this.name = name;
+        this.age = age;
+        this.section = section;
+        this.gender = gender;
+        this.subject1 = 0;
+        this.subject2 = subject2;
+        this.subject3 = subject3;
+    }
+    void display() {
+        int total = subject1 + subject2 + subject3;
+        double percentage = (total / 300.0) * 100;
+       System.out.println(name + "\t" +
+                            age + "\t" +
+                            section + "\t" +
+                            gender + "\t" +
+                            subject1 + "\t" +
+                            subject2 + "\t" +
+                            subject3 + "\t" +
+                            total + "\t" +
+                            percentage + "%"
+                            );
+    
+}
+}
+class Main {
+    public static void main(String[] args) {
+        Students s1 = new Students("alen", 22, 'A', 'M', 50,60,70);
+        Students s2 = new Students("Priya", 19, 'B', 'F', 87, 95);
+        Students s3 = new Students("Aman", 18, 'A', 'M', 80, 82);
+        Students s4 = new Students("Neha", 19, 'C', 'F', 89, 91, 86);
+        s1.display();
+        s2.display();
+        s3.display();
+        s4.display();
+       
+        
+    }
+}

@@ -1,0 +1,29 @@
+/*Assignment 1: (function overloading)
+
+Note **: create function name as "calculate"
+*/
+   import java.util.*;
+   class Test{
+   //create method of return type int add two numbers
+       int calculate(int a, int b){
+           return a+b;}
+   // one of return type int to calculate the area of the circle        
+       int calculate(int r){
+       return (int)Math.PI*r*r;}
+  // one of return type int area of the rectangle    
+       int calculate(int length, int breadth, int height){
+           return length*breadth*height;
+       }
+ //  one of return type int area of the square       
+       int calculate(double side){
+           return (int)(side*side);}
+   }
+class Main {
+    public static void main(String[] args) {
+        Test t = new Test();
+        System.out.println("Sum = " + t.calculate(10, 20));
+        System.out.println("Area of Circle = " + t.calculate(5));
+        System.out.println("Area of Rectangle = " + t.calculate(10, 5, 0));
+        System.out.println("Area of Square = " + t.calculate(4.0));
+    }
+}

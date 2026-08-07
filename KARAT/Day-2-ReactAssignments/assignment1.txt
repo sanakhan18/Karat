@@ -1,0 +1,12 @@
+const promise1 = Promise.resolve("Hello");
+const promise2 = Promise.resolve("You are learning");
+const promise3 = Promise.resolve("Javascript");
+const promise4 = Promise.reject("Bye").catch(err => err);
+
+async function printMessages() {
+    console.log(await promise3);
+    console.log(await promise1);
+    console.log(await promise2);
+}
+
+printMessages();

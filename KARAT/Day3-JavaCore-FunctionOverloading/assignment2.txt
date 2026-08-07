@@ -1,0 +1,87 @@
+/*Assignment 2:  (method + constructors)
+Create class as "Shape" 
+i want to calculate the area of the different shapes - square, rectangle, circle
+1. create 4 constructors - default contructor + three parameterized constrcutors for the shapes (using constructor overloading)
+2. create 3 methods for (square, rectangle, circle) display which will display the value of the area calculated
+3. calcuate the area of the rhombus and triangle using the method overloa*/
+class Shape {
+
+    double side, length, breadth, radius;
+
+    // 1. Default Constructor
+    Shape() {
+        System.out.println("Default Constructor Called");
+    }
+
+    // 2. Parameterized Constructor for Square
+    Shape(double side) {
+        this.side = side;
+    }
+
+    // 3. Parameterized Constructor for Rectangle
+    Shape(double length, double breadth) {
+        this.length = length;
+        this.breadth = breadth;
+    }
+
+    // 4. Parameterized Constructor for Circle
+    Shape(double radius, boolean circle) {
+        this.radius = radius;
+    }
+
+    // Method to display area of Square
+    void displaySquare() {
+        double area = side * side;
+        System.out.println("Area of Square = " + area);
+    }
+
+    // Method to display area of Rectangle
+    void displayRectangle() {
+        double area = length * breadth;
+        System.out.println("Area of Rectangle = " + area);
+    }
+
+    // Method to display area of Circle
+    void displayCircle() {
+        double area = 3.14 * radius * radius;
+        System.out.println("Area of Circle = " + area);
+    }
+
+    // Method Overloading for Triangle
+    void area(double base, double height) {
+        double area = 0.5 * base * height;
+        System.out.println("Area of Triangle = " + area);
+    }
+
+    // Method Overloading for Rhombus
+    void area(double diagonal1, double diagonal2, int rhombus) {
+        double area = 0.5 * diagonal1 * diagonal2;
+        System.out.println("Area of Rhombus = " + area);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Default Constructor
+        Shape s1 = new Shape();
+
+        // Square
+        Shape square = new Shape(5);
+        square.displaySquare();
+
+        // Rectangle
+        Shape rectangle = new Shape(8, 4);
+        rectangle.displayRectangle();
+
+        // Circle
+        Shape circle = new Shape(7, true);
+        circle.displayCircle();
+
+        // Triangle 
+        square.area(10, 6);
+
+        // Rhombus
+        square.area(12, 8, 1);
+    }
+}

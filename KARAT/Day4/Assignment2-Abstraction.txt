@@ -1,0 +1,64 @@
+// Parent Abstract Class
+abstract class MNC {
+
+    // Constructor
+    MNC() {
+        System.out.println("MNC Constructor Called");
+    }
+
+    // Abstract Methods
+    abstract void leaves();
+
+    abstract void holidays();
+
+    // Normal Method
+    void companyPolicy() {
+        System.out.println("MNC Company Policy");
+    }
+}
+
+// Child Abstract Class
+abstract class Infosys extends MNC {
+
+    // leaves() remains abstract
+    @Override
+    abstract void leaves();
+
+    // holidays() implemented
+    @Override
+    void holidays() {
+        System.out.println("Infosys provides 20 holidays");
+    }
+}
+
+// Child of Infosys
+class Hello extends Infosys {
+
+    // Implementing leaves()
+    @Override
+    void leaves() {
+        System.out.println("Infosys provides 15 leaves");
+    }
+
+    // Normal Method
+    void greet() {
+        System.out.println("Hello!!!");
+    }
+}
+
+// Main Class
+public class Main {
+    public static void main(String[] args) {
+
+        // Dynamic Polymorphism
+        MNC obj = new Hello();
+
+        obj.leaves();
+        obj.holidays();
+        obj.companyPolicy();
+
+        // Calling Hello's own method
+        Hello h = (Hello) obj;
+        h.greet();
+    }
+}
